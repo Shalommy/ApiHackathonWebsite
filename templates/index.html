@@ -1,0 +1,105 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel= "stylesheet" href= "{% static 'styles.css' %}">
+  <!-- Styles put here because it does not read when it is in the static 
+    folder, but I included the link so that you can see that I can link 
+    the css file to the html file. -->
+  <style>
+    body{ 
+      text-align: center;
+      background-color:pink;
+      font-family: 'Roboto', sans-serif;
+    }
+    .container{
+      display: flex;
+      object-fit: contain;
+      justify-content: space-between;
+      margin-top: 10px;
+      margin-left: 5px;
+      }
+  
+    .photo{
+      border-radius:10px;  
+      max-width: 100%;
+      max-height: 100%;
+       }
+    .image{
+      max-width: 100px;
+      max-height: 100px;
+      object-fit: contain;
+      }
+   
+      
+    .random{
+      padding: 5px 5px;
+      width: 450px;
+      height: 450px;
+      border: 5px solid grey;
+      border-radius: 10px;
+      background: #FFF2E1;
+      }
+    input, button{
+      padding: 10px 10px;
+      border: 5px solid grey;
+      border-radius: 5px;
+      margin-bottom: 10px; 
+         }
+      button{
+        padding: 10px 10px;
+        background-color: white;
+        color: grey;
+        cursor: pointer;
+        border-radius: 50%;
+        border: 10px solid grey;
+        }
+          
+  </style>
+</head>
+<body>
+  <h1>Hello World! </br>
+    👋👋🏽👋🏻🌍👋🏾👋🏼👋🏿
+  </h1>
+  </br> 
+  <h2>Welcome to the world of total randomness!
+    </h2>
+ </br>
+<form method = 'POST'>
+  {% csrf_token %}
+  <input type= "text" placeholder= "Enter image to search for" 
+   name= "photo"/>
+  <button type= "submit""> Enter </button>
+</form>
+  <div class = photo>
+  <img src='https://source.unsplash.com/1600x900/?{{photo}}' alt='images'/>
+  </div>
+  
+  <div class= container>
+  
+    <div class= random>
+<h3> Did you know?🤔🤔🤔</h3>
+  <p>{{fact}}</p>
+      </div>
+      <div class= random>
+  <h3> Are you bored 🥱?</h3>
+   <p>{{activity}}</p>
+        </div>
+        <div class= random>
+  <h3> 🐶Random loyal friends🐶</h3>
+          <div class= image>
+   <img src='{{ dog }}' alt= 'image of a dog'>
+            </div>
+          </div>
+  </div>
+  
+</body>
+</html>
+
+
+
+
